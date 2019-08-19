@@ -110,7 +110,7 @@ namespace mycalc.Classes
                 return Operations.Add;
             else if (value.Equals("-"))
                 return Operations.Subtract;
-            else if (value.Equals("x"))
+            else if (value.ToUpper().Equals("X"))
                 return Operations.Multiply;
             else if (value.Equals("*"))
                 return Operations.Multiply;
@@ -125,15 +125,15 @@ namespace mycalc.Classes
                 return Operations.ReverseSign;
             else if (value.Equals("\\") || value.Equals("\b"))
                 return Operations.Backspace;
-            else if (value.Equals("C"))
+            else if (value.ToUpper().Equals("C"))
                 return Operations.Clear;
-            else if (value.Equals("AC"))
+            else if (value.ToUpper().Equals("AC"))
                 return Operations.ClearAll;
-            else if (value.Equals("M"))
+            else if (value.ToUpper().Equals("M"))
                 return Operations.MemAdd;
-            else if (value.Equals("MC"))
+            else if (value.ToUpper().Equals("MC"))
                 return Operations.MemClear;
-            else if (value.Equals("MR"))
+            else if (value.ToUpper().Equals("MR"))
                 return Operations.MemRecall;
             return Operations.None;
         }
@@ -165,8 +165,11 @@ namespace mycalc.Classes
                 m_left_value = 0.0;
             else
                 m_right_value = 0.0;
-            m_history = RemoveFromString(m_history, m_data);
-            m_data = "";
+            if (!String.IsNullOrEmpty(m_data))
+            {
+                m_history = RemoveFromString(m_history, m_data);
+                m_data = "";
+            }
             FireEvent(memoryEvent: false);
         }
 
@@ -299,9 +302,9 @@ namespace mycalc.Classes
         private String RemoveFromString(String source, String expression)
         {
             // remove data from history
-            if (source.Length - expression.Length > source.Length)
+            if (source.Length == 0 || source.Length - expression.Length > source.Length)
                 return "";
-                return source.Remove(source.Length - expression.Length);
+            return source.Remove(source.Length - expression.Length);
         }
 
         /// <summary>

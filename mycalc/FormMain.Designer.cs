@@ -115,7 +115,7 @@
             // 
             // roundedButton2
             // 
-            this.roundedButton2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.roundedButton2.BackColor = System.Drawing.Color.Salmon;
             this.roundedButton2.BorderColor = System.Drawing.Color.Empty;
             this.roundedButton2.BorderSize = 0;
             this.roundedButton2.FlatAppearance.BorderSize = 0;
@@ -131,7 +131,7 @@
             // 
             // roundedButton3
             // 
-            this.roundedButton3.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.roundedButton3.BackColor = System.Drawing.Color.Salmon;
             this.roundedButton3.BorderColor = System.Drawing.Color.Empty;
             this.roundedButton3.BorderSize = 0;
             this.roundedButton3.FlatAppearance.BorderSize = 0;
